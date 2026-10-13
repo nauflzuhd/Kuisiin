@@ -76,3 +76,9 @@ flutter run
   - Menyiapkan aset grafis resolusi tinggi di `assets/images/` dan `assets/icons/`.
   - Mendaftarkan aset dan font di `pubspec.yaml`.
   - Membuat konstanta warna `AppColors` (`lib/core/constants/app_colors.dart`) dan konstanta teks/aset `AppStrings` (`lib/core/constants/app_strings.dart`).
+- **Hari 3 (13 Okt 2026):**
+  - Membuat model data `Question` (`lib/models/question.dart`).
+  - Menyiapkan data dummy kuis berisi 10 pertanyaan Pemrograman Mobile & Flutter dalam satu list (`lib/data/questions_data.dart`).
+  - Membuat utility pembantu `Responsive` (`lib/core/utils/responsive.dart`) untuk kalkulasi dimensi dinamis.
+  - Mengonfigurasi `AppTheme` (`lib/core/theme/app_theme.dart`) untuk light & dark theme dengan font kustom Poppins.
+  - Memasang tema global dan integrasi ke `MaterialApp` (`lib/app.dart`).
