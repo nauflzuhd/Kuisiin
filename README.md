@@ -82,3 +82,10 @@ flutter run
   - Membuat utility pembantu `Responsive` (`lib/core/utils/responsive.dart`) untuk kalkulasi dimensi dinamis.
   - Mengonfigurasi `AppTheme` (`lib/core/theme/app_theme.dart`) untuk light & dark theme dengan font kustom Poppins.
   - Memasang tema global dan integrasi ke `MaterialApp` (`lib/app.dart`).
+- **Hari 4 (14 Okt 2026):**
+  - Membuat komponen reusable `PrimaryButton` (`lib/widgets/primary_button.dart`) dengan dimensi dinamis dan handling status loading.
+  - Membangun halaman `WelcomeScreen` (`lib/screens/welcome_screen.dart`) berbasis `StatefulWidget` dengan layout responsif terpusat.
+  - Menerapkan validasi input nama (tidak boleh kosong, trim spasi, batas karakter) dan pesan error informatif.
+  - Menggunakan `SingleChildScrollView` dan `keyboardDismissBehavior` untuk memastikan tampilan bebas overflow saat keyboard virtual aktif maupun saat layar dirotasi (landscape).
+  - Mengintegrasikan `WelcomeScreen` ke dalam root `MaterialApp` (`lib/app.dart`).
+
