@@ -88,4 +88,10 @@ flutter run
   - Menerapkan validasi input nama (tidak boleh kosong, trim spasi, batas karakter) dan pesan error informatif.
   - Menggunakan `SingleChildScrollView` dan `keyboardDismissBehavior` untuk memastikan tampilan bebas overflow saat keyboard virtual aktif maupun saat layar dirotasi (landscape).
   - Mengintegrasikan `WelcomeScreen` ke dalam root `MaterialApp` (`lib/app.dart`).
+- **Hari 5 (15 Okt 2026):**
+  - Mengimplementasikan `QuizProvider` (`lib/providers/quiz_provider.dart`) berbasis `ChangeNotifier` untuk menyimpan state nama pengguna, index soal, jawaban terpilih, dan evaluasi skor.
+  - Memasang `MultiProvider` dan `ChangeNotifierProvider` di atas root `MaterialApp` (`lib/main.dart`) agar state tetap persisten saat rotasi layar atau navigasi halaman.
+  - Mendefinisikan konstanta rute `AppRoutes` (`lib/core/constants/app_routes.dart`) dan konfigurasi named routes di `lib/app.dart`.
+  - Membuat halaman placeholder `QuizScreen` (`lib/screens/quiz_screen.dart`) dan `ResultScreen` (`lib/screens/result_screen.dart`).
+  - Menghubungkan input nama di `WelcomeScreen` agar tersimpan langsung ke `QuizProvider` dan melakukan navigasi ke `QuizScreen`.
 
