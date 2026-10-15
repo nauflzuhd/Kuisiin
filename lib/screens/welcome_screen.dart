@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../core/constants/app_colors.dart';
+import '../core/constants/app_routes.dart';
 import '../core/constants/app_strings.dart';
 import '../core/utils/responsive.dart';
+import '../providers/quiz_provider.dart';
 import '../widgets/primary_button.dart';
 
 /// Halaman awal (Welcome Screen) aplikasi Kuisiin.
@@ -23,7 +26,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController();
+    // Membaca nama yang tersimpan sebelumnya jika ada
+    final String initialName = context.read<QuizProvider>().userName;
+    _nameController = TextEditingController(text: initialName);
+
     // Listener untuk memperbarui tampilan saat teks berubah (mis. tombol clear)
     _nameController.addListener(() {
       if (mounted) setState(() {});
@@ -37,7 +43,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     super.dispose();
   }
 
-  /// Memvalidasi input nama dan melanjutkan proses kuis.
+  /// Memvalidasi input nama, menyimpannya ke QuizProvider, lalu berpindah ke halaman kuis.
   void _handleSubmit() {
     // Sembunyikan keyboard
     FocusScope.of(context).unfocus();
@@ -45,34 +51,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     if (_formKey.currentState?.validate() ?? false) {
       final String trimmedName = _nameController.text.trim();
 
-      // Feedback visual sukses validasi
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Row(
-            children: [
-              const Icon(
-                Icons.check_circle_outline_rounded,
-                color: Colors.white,
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  'Halo $trimmedName! Nama berhasil disimpan.',
-                  style: const TextStyle(fontWeight: FontWeight.w500),
-                ),
-              ),
-            ],
-          ),
-          backgroundColor: AppColors.success,
-          behavior: SnackBarBehavior.floating,
-          duration: const Duration(seconds: 2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-      );
+      // Simpan nama ke state global Provider
+      final quizProvider = context.read<QuizProvider>();
+      quizProvider.setUserName(trimmedName);
+      quizProvider.reset(keepUserName: true);
+
+      // Navigasi ke QuizScreen menggunakan named route
+      Navigator.pushReplacementNamed(context, AppRoutes.quiz);
     }
   }
+
 
   /// Validasi nama pengguna: tidak boleh kosong, spasi berlebih, atau kurang dari 2 karakter.
   String? _validateName(String? value) {
