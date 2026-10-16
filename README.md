@@ -94,4 +94,10 @@ flutter run
   - Mendefinisikan konstanta rute `AppRoutes` (`lib/core/constants/app_routes.dart`) dan konfigurasi named routes di `lib/app.dart`.
   - Membuat halaman placeholder `QuizScreen` (`lib/screens/quiz_screen.dart`) dan `ResultScreen` (`lib/screens/result_screen.dart`).
   - Menghubungkan input nama di `WelcomeScreen` agar tersimpan langsung ke `QuizProvider` dan melakukan navigasi ke `QuizScreen`.
+- **Hari 6 (16 Okt 2026):**
+  - Membuat widget modular `OptionTile` (`lib/widgets/option_tile.dart`) dengan badge huruf (A-D), animasi transisi warna, dan indikator status terpilih.
+  - Membuat widget modular `QuestionCard` (`lib/widgets/question_card.dart`) untuk menampilkan kategori topik kuis, nomor urut pertanyaan, dan teks soal responsif.
+  - Membuat widget modular `QuizProgressBar` (`lib/widgets/quiz_progress_bar.dart`) dengan indikator teks "Soal X dari Y", persentase pengerjaan, dan visual animated `LinearProgressIndicator`.
+  - Merakit tata letak utama `QuizScreen` (`lib/screens/quiz_screen.dart`) yang membaca data dinamis dari `QuizProvider`, menyertakan sapaan pengguna di header, serta tombol navigasi pertanyaan.
+
 
