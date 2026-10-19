@@ -45,6 +45,12 @@ class QuizProvider with ChangeNotifier {
   int get answeredCount =>
       _selectedAnswers.where((answer) => answer != null).length;
 
+  /// Jumlah pertanyaan yang belum dijawab oleh pengguna.
+  int get unansweredCount => totalQuestions - answeredCount;
+
+  /// Memeriksa apakah masih terdapat soal yang belum dijawab.
+  bool get hasUnansweredQuestions => unansweredCount > 0;
+
   /// Memeriksa apakah semua soal sudah dijawab.
   bool get allQuestionsAnswered => answeredCount == totalQuestions;
 
@@ -107,6 +113,15 @@ class QuizProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  /// Berpindah langsung ke soal pada indeks tertentu.
+  void jumpToQuestion(int index) {
+    if (index >= 0 && index < _questions.length) {
+      _currentIndex = index;
+      notifyListeners();
+    }
+  }
+
 
   /// Menandai kuis telah selesai dan menghitung hasil.
   void finish() {
