@@ -87,10 +87,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       context,
       0.025,
     ).clamp(16.0, 28.0);
-    final double heroImageHeight = Responsive.h(
-      context,
-      0.24,
-    ).clamp(140.0, 210.0);
+    final bool isLandscape = Responsive.isLandscape(context);
+    final double heroImageHeight = isLandscape
+        ? Responsive.h(context, 0.22).clamp(80.0, 120.0)
+        : Responsive.h(context, 0.24).clamp(140.0, 210.0);
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
