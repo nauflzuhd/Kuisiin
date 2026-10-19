@@ -99,5 +99,12 @@ flutter run
   - Membuat widget modular `QuestionCard` (`lib/widgets/question_card.dart`) untuk menampilkan kategori topik kuis, nomor urut pertanyaan, dan teks soal responsif.
   - Membuat widget modular `QuizProgressBar` (`lib/widgets/quiz_progress_bar.dart`) dengan indikator teks "Soal X dari Y", persentase pengerjaan, dan visual animated `LinearProgressIndicator`.
   - Merakit tata letak utama `QuizScreen` (`lib/screens/quiz_screen.dart`) yang membaca data dinamis dari `QuizProvider`, menyertakan sapaan pengguna di header, serta tombol navigasi pertanyaan.
+- **Hari 9 (19 Okt 2026):**
+  - Menyempurnakan logika kuis di `QuizProvider` (`lib/providers/quiz_provider.dart`): persistensi jawaban saat navigasi maju/mundur, evaluasi skor otomatis, proteksi `PopScope`, dan dialog konfirmasi jika masih ada soal belum terjawab saat menekan "Selesai".
+  - Membuat widget modular `ScoreCard` (`lib/widgets/score_card.dart`) untuk menampilkan nilai besar rasio /100 dan statistik rincian (benar, salah, total soal).
+  - Menyelesaikan antarmuka lengkap `ResultScreen` (`lib/screens/result_screen.dart`) dengan sapaan personal, pesan motivasi dinamis sesuai persentase nilai, tombol "Ulangi Kuis", dan "Kembali ke Beranda".
+  - Mengaudit seluruh stylesheet untuk memastikan ukuran dinamis berbasis `Responsive` (kriteria #6) dan mengimplementasikan tata letak adaptif 2 kolom saat layar berada pada orientasi landscape.
+
+
 
 
