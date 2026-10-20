@@ -23,6 +23,7 @@ Aplikasi kuis pilihan ganda interaktif berbasis Flutter yang dikembangkan bertah
 - Progres kuis tidak hilang saat rotasi layar atau pindah halaman
 - (Bonus) Dark & Light mode
 - (Bonus) Tampilan adaptif tablet & web
+- (Bonus) Peninjauan & pembahasan jawaban kuis (Review Answers)
 
 ---
 
@@ -104,6 +105,11 @@ flutter run
   - Membuat widget modular `ScoreCard` (`lib/widgets/score_card.dart`) untuk menampilkan nilai besar rasio /100 dan statistik rincian (benar, salah, total soal).
   - Menyelesaikan antarmuka lengkap `ResultScreen` (`lib/screens/result_screen.dart`) dengan sapaan personal, pesan motivasi dinamis sesuai persentase nilai, tombol "Ulangi Kuis", dan "Kembali ke Beranda".
   - Mengaudit seluruh stylesheet untuk memastikan ukuran dinamis berbasis `Responsive` (kriteria #6) dan mengimplementasikan tata letak adaptif 2 kolom saat layar berada pada orientasi landscape.
+- **Hari 10 (20 Okt 2026):**
+  - Mengimplementasikan fitur bonus tema ganda (Light & Dark Mode) menggunakan `ThemeProvider` (`lib/providers/theme_provider.dart`) dengan integrasi global pada `MaterialApp`.
+  - Membuat widget reusable `ThemeToggleButton` (`lib/widgets/theme_toggle_button.dart`) dengan animasi rotasi/skala halus yang disematkan pada seluruh AppBar layar aplikasi.
+  - Membangun fitur peninjauan dan pembahasan kuis lengkap (`ReviewAnswersSheet`) di halaman hasil (`lib/widgets/review_answers_sheet.dart`) untuk menampilkan evaluasi benar/salah setiap butir soal beserta kunci jawaban dan penjelasannya.
+
 
 
 
