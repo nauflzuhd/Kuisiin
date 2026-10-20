@@ -18,9 +18,16 @@ class QuizProgressBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
-    final double progressValue = total > 0 ? (current / total).clamp(0.0, 1.0) : 0.0;
+    final double progressValue = total > 0
+        ? (current / total).clamp(0.0, 1.0)
+        : 0.0;
     final int progressPercent = (progressValue * 100).round();
-    final double labelFontSize = Responsive.sp(context, 0.033, min: 12.0, max: 14.0);
+    final double labelFontSize = Responsive.sp(
+      context,
+      0.033,
+      min: 12.0,
+      max: 14.0,
+    );
     final double barHeight = Responsive.h(context, 0.01).clamp(7.0, 9.0);
 
     return Column(
@@ -72,8 +79,12 @@ class QuizProgressBar extends StatelessWidget {
               return LinearProgressIndicator(
                 value: value,
                 minHeight: barHeight,
-                backgroundColor: isDark ? AppColors.darkBorder : AppColors.lightBorder,
-                valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
+                backgroundColor: isDark
+                    ? AppColors.darkBorder
+                    : AppColors.lightBorder,
+                valueColor: const AlwaysStoppedAnimation<Color>(
+                  AppColors.primary,
+                ),
               );
             },
           ),

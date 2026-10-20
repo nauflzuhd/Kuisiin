@@ -28,15 +28,22 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final quiz = context.watch<QuizProvider>();
-    final double horizontalPadding = Responsive.w(context, 0.05).clamp(16.0, 28.0);
-    final double verticalPadding = Responsive.h(context, 0.025).clamp(16.0, 28.0);
+    final double horizontalPadding = Responsive.w(
+      context,
+      0.05,
+    ).clamp(16.0, 28.0);
+    final double verticalPadding = Responsive.h(
+      context,
+      0.025,
+    ).clamp(16.0, 28.0);
     final bool isLandscape = Responsive.isLandscape(context);
     final double imageSize = isLandscape
         ? Responsive.h(context, 0.22).clamp(75.0, 110.0)
         : Responsive.h(context, 0.22).clamp(130.0, 190.0);
     final String feedbackMessage = _getFeedbackMessage(quiz.score);
-    final String displayName =
-        quiz.userName.trim().isEmpty ? 'Peserta' : quiz.userName.trim();
+    final String displayName = quiz.userName.trim().isEmpty
+        ? 'Peserta'
+        : quiz.userName.trim();
 
     return PopScope(
       canPop: false,
@@ -54,15 +61,14 @@ class ResultScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text(AppStrings.resultTitle),
           automaticallyImplyLeading: false,
-          actions: const [
-            ThemeToggleButton(),
-            SizedBox(width: 8),
-          ],
+          actions: const [ThemeToggleButton(), SizedBox(width: 8)],
         ),
         body: SafeArea(
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: Responsive.maxContentWidth),
+              constraints: const BoxConstraints(
+                maxWidth: Responsive.maxContentWidth,
+              ),
               child: SingleChildScrollView(
                 padding: EdgeInsets.symmetric(
                   horizontal: horizontalPadding,
@@ -93,9 +99,15 @@ class ResultScreen extends StatelessWidget {
                     Text(
                       'Selamat, $displayName! 🎓',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      style: Theme.of(context).textTheme.headlineSmall
+                          ?.copyWith(
                             fontWeight: FontWeight.w800,
-                            fontSize: Responsive.sp(context, 0.055, min: 20.0, max: 24.0),
+                            fontSize: Responsive.sp(
+                              context,
+                              0.055,
+                              min: 20.0,
+                              max: 24.0,
+                            ),
                           ),
                     ),
                     const SizedBox(height: 6),
@@ -105,7 +117,12 @@ class ResultScreen extends StatelessWidget {
                       feedbackMessage,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: Responsive.sp(context, 0.036, min: 13.0, max: 15.0),
+                        fontSize: Responsive.sp(
+                          context,
+                          0.036,
+                          min: 13.0,
+                          max: 15.0,
+                        ),
                         fontWeight: FontWeight.w600,
                         color: AppColors.primary,
                       ),
@@ -131,9 +148,15 @@ class ResultScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),
                         ),
-                        side: const BorderSide(color: AppColors.primary, width: 1.5),
+                        side: const BorderSide(
+                          color: AppColors.primary,
+                          width: 1.5,
+                        ),
                         padding: EdgeInsets.symmetric(
-                          vertical: Responsive.h(context, 0.016).clamp(12.0, 16.0),
+                          vertical: Responsive.h(
+                            context,
+                            0.016,
+                          ).clamp(12.0, 16.0),
                         ),
                       ),
                     ),
@@ -149,7 +172,6 @@ class ResultScreen extends StatelessWidget {
                       },
                     ),
                     SizedBox(height: Responsive.h(context, 0.015)),
-
 
                     // 5. Tombol Kembali ke Halaman Utama (Reset semua)
                     OutlinedButton.icon(
@@ -167,9 +189,15 @@ class ResultScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),
                         ),
-                        side: const BorderSide(color: AppColors.primary, width: 1.2),
+                        side: const BorderSide(
+                          color: AppColors.primary,
+                          width: 1.2,
+                        ),
                         padding: EdgeInsets.symmetric(
-                          vertical: Responsive.h(context, 0.016).clamp(12.0, 16.0),
+                          vertical: Responsive.h(
+                            context,
+                            0.016,
+                          ).clamp(12.0, 16.0),
                         ),
                       ),
                     ),

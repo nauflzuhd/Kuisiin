@@ -25,7 +25,8 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double buttonHeight = height ?? Responsive.h(context, 0.065).clamp(48.0, 56.0);
+    final double buttonHeight =
+        height ?? Responsive.h(context, 0.065).clamp(48.0, 56.0);
     final double buttonWidth = width ?? double.infinity;
     final double fontSize = Responsive.sp(context, 0.04, min: 14.0, max: 16.0);
 
@@ -62,7 +63,9 @@ class PrimaryButton extends StatelessWidget {
                 children: [
                   if (icon != null) ...[
                     Icon(icon, size: fontSize * 1.25),
-                    SizedBox(width: Responsive.w(context, 0.02).clamp(6.0, 10.0)),
+                    SizedBox(
+                      width: Responsive.w(context, 0.02).clamp(6.0, 10.0),
+                    ),
                   ],
                   Text(
                     text,

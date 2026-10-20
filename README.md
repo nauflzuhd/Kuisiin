@@ -109,6 +109,11 @@ flutter run
   - Mengimplementasikan fitur bonus tema ganda (Light & Dark Mode) menggunakan `ThemeProvider` (`lib/providers/theme_provider.dart`) dengan integrasi global pada `MaterialApp`.
   - Membuat widget reusable `ThemeToggleButton` (`lib/widgets/theme_toggle_button.dart`) dengan animasi rotasi/skala halus yang disematkan pada seluruh AppBar layar aplikasi.
   - Membangun fitur peninjauan dan pembahasan kuis lengkap (`ReviewAnswersSheet`) di halaman hasil (`lib/widgets/review_answers_sheet.dart`) untuk menampilkan evaluasi benar/salah setiap butir soal beserta kunci jawaban dan penjelasannya.
+- **Hari 11 (21 Okt 2026):**
+  - Melakukan audit komprehensif kode dengan `flutter analyze` untuk memastikan tidak ada warning maupun error lint (0 issues).
+  - Memperbarui suite pengujian widget & unit test pada `test/widget_test.dart` (mencakup flow render halaman, validasi input nama kosong, logika kalkulasi skor kuis di `QuizProvider`, serta fungsi toggle `ThemeProvider`), dan seluruh pengujian berhasil lulus 100%.
+  - Merapikan struktur dan format kode pada seluruh direktori `lib/` dan `test/` menggunakan perintah standar `dart format`.
+
 
 
 

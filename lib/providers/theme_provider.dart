@@ -13,7 +13,9 @@ class ThemeProvider with ChangeNotifier {
 
   /// Mengganti tema antara Terang dan Gelap.
   void toggleTheme() {
-    _themeMode = _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    _themeMode = _themeMode == ThemeMode.light
+        ? ThemeMode.dark
+        : ThemeMode.light;
     notifyListeners();
   }
 

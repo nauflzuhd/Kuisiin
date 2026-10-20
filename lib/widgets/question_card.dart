@@ -23,7 +23,12 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
     final double cardPadding = Responsive.w(context, 0.05).clamp(16.0, 22.0);
-    final double questionFontSize = Responsive.sp(context, 0.043, min: 15.0, max: 18.0);
+    final double questionFontSize = Responsive.sp(
+      context,
+      0.043,
+      min: 15.0,
+      max: 18.0,
+    );
 
     return Card(
       elevation: isDark ? 0 : 2,
@@ -69,7 +74,12 @@ class QuestionCard extends StatelessWidget {
                       Text(
                         category,
                         style: TextStyle(
-                          fontSize: Responsive.sp(context, 0.028, min: 11.0, max: 12.0),
+                          fontSize: Responsive.sp(
+                            context,
+                            0.028,
+                            min: 11.0,
+                            max: 12.0,
+                          ),
                           fontWeight: FontWeight.w600,
                           color: AppColors.primary,
                         ),
@@ -80,17 +90,29 @@ class QuestionCard extends StatelessWidget {
 
                 // Nomor Soal Tag
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
-                    color: isDark ? AppColors.darkBackground : const Color(0xFFF1F5F9),
+                    color: isDark
+                        ? AppColors.darkBackground
+                        : const Color(0xFFF1F5F9),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
                     '#$questionNumber',
                     style: TextStyle(
-                      fontSize: Responsive.sp(context, 0.03, min: 11.0, max: 13.0),
+                      fontSize: Responsive.sp(
+                        context,
+                        0.03,
+                        min: 11.0,
+                        max: 13.0,
+                      ),
                       fontWeight: FontWeight.w700,
-                      color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                      color: isDark
+                          ? AppColors.darkTextSecondary
+                          : AppColors.lightTextSecondary,
                     ),
                   ),
                 ),

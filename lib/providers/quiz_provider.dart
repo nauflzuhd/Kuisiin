@@ -122,7 +122,6 @@ class QuizProvider with ChangeNotifier {
     }
   }
 
-
   /// Menandai kuis telah selesai dan menghitung hasil.
   void finish() {
     _isFinished = true;

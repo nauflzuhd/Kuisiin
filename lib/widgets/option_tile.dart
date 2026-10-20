@@ -28,8 +28,8 @@ class OptionTile extends StatelessWidget {
     // Warna dinamis berdasarkan status terpilih dan tema aktif
     final Color backgroundColor = isSelected
         ? (isDark
-            ? AppColors.primaryDark.withValues(alpha: 0.35)
-            : AppColors.primary.withValues(alpha: 0.08))
+              ? AppColors.primaryDark.withValues(alpha: 0.35)
+              : AppColors.primary.withValues(alpha: 0.08))
         : (isDark ? AppColors.darkSurface : AppColors.lightSurface);
 
     final Color borderColor = isSelected
@@ -45,7 +45,9 @@ class OptionTile extends StatelessWidget {
         : (isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary);
 
     return Padding(
-      padding: EdgeInsets.only(bottom: Responsive.h(context, 0.015).clamp(10.0, 14.0)),
+      padding: EdgeInsets.only(
+        bottom: Responsive.h(context, 0.015).clamp(10.0, 14.0),
+      ),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
@@ -110,7 +112,9 @@ class OptionTile extends StatelessWidget {
                     optionText,
                     style: TextStyle(
                       fontSize: fontSize,
-                      fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+                      fontWeight: isSelected
+                          ? FontWeight.w600
+                          : FontWeight.w400,
                       color: isSelected
                           ? (isDark ? Colors.white : AppColors.primaryDark)
                           : Theme.of(context).colorScheme.onSurface,

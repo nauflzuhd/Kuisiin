@@ -32,9 +32,12 @@ class AppStrings {
   // Result Screen
   static const String resultTitle = 'Hasil Kuis Kamu';
   static const String perfectScoreMessage = 'Luar Biasa! Skor Sempurna! 🎉';
-  static const String greatScoreMessage = 'Hebat Sekali! Pertahankan prestasimu! 👏';
-  static const String goodScoreMessage = 'Bagus! Terus belajar dan tingkatkan lagi! 💪';
-  static const String keepLearningMessage = 'Jangan menyerah! Ayo coba pelajari lagi! 📚';
+  static const String greatScoreMessage =
+      'Hebat Sekali! Pertahankan prestasimu! 👏';
+  static const String goodScoreMessage =
+      'Bagus! Terus belajar dan tingkatkan lagi! 💪';
+  static const String keepLearningMessage =
+      'Jangan menyerah! Ayo coba pelajari lagi! 📚';
   static const String totalScoreLabel = 'Skor Akhir';
   static const String correctAnswersLabel = 'Jawaban Benar';
   static const String incorrectAnswersLabel = 'Jawaban Salah';

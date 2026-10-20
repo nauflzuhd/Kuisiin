@@ -44,18 +44,12 @@ class AppColors {
   static const LinearGradient primaryGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [
-      Color(0xFF6C63FF),
-      Color(0xFF8B85FF),
-    ],
+    colors: [Color(0xFF6C63FF), Color(0xFF8B85FF)],
   );
 
   static const LinearGradient accentGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [
-      Color(0xFFFFB800),
-      Color(0xFFFF8A00),
-    ],
+    colors: [Color(0xFFFFB800), Color(0xFFFF8A00)],
   );
 }

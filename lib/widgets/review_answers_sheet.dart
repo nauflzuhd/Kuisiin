@@ -28,7 +28,10 @@ class ReviewAnswersSheet extends StatelessWidget {
     final List<Question> questions = quiz.questions;
     final List<int?> userAnswers = quiz.selectedAnswers;
     final double sheetHeight = Responsive.h(context, 0.88).clamp(520.0, 780.0);
-    final double horizontalPadding = Responsive.w(context, 0.05).clamp(16.0, 24.0);
+    final double horizontalPadding = Responsive.w(
+      context,
+      0.05,
+    ).clamp(16.0, 24.0);
 
     return Container(
       height: sheetHeight,
@@ -60,7 +63,10 @@ class ReviewAnswersSheet extends StatelessWidget {
 
           // Header sheet
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 8),
+            padding: EdgeInsets.symmetric(
+              horizontal: horizontalPadding,
+              vertical: 8,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -78,17 +84,25 @@ class ReviewAnswersSheet extends StatelessWidget {
                         Text(
                           'Pembahasan & Evaluasi',
                           style: TextStyle(
-                            fontSize: Responsive.sp(context, 0.042, min: 16.0, max: 18.0),
+                            fontSize: Responsive.sp(
+                              context,
+                              0.042,
+                              min: 16.0,
+                              max: 18.0,
+                            ),
                             fontWeight: FontWeight.w700,
                           ),
                         ),
                         Text(
                           'Benar ${quiz.correctCount} dari ${quiz.totalQuestions} soal',
                           style: TextStyle(
-                            fontSize: Responsive.sp(context, 0.03, min: 11.0, max: 13.0),
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onSurface
+                            fontSize: Responsive.sp(
+                              context,
+                              0.03,
+                              min: 11.0,
+                              max: 13.0,
+                            ),
+                            color: Theme.of(context).colorScheme.onSurface
                                 .withValues(alpha: 0.65),
                           ),
                         ),
@@ -109,14 +123,18 @@ class ReviewAnswersSheet extends StatelessWidget {
           // Daftar pertanyaan dan pembahasan
           Expanded(
             child: ListView.separated(
-              padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 16),
+              padding: EdgeInsets.symmetric(
+                horizontal: horizontalPadding,
+                vertical: 16,
+              ),
               itemCount: questions.length,
               separatorBuilder: (context, index) => const SizedBox(height: 16),
               itemBuilder: (context, index) {
                 final Question question = questions[index];
                 final int? selectedOptionIndex = userAnswers[index];
                 final bool isAnswered = selectedOptionIndex != null;
-                final bool isCorrect = isAnswered && selectedOptionIndex == question.correctIndex;
+                final bool isCorrect =
+                    isAnswered && selectedOptionIndex == question.correctIndex;
 
                 return Card(
                   elevation: 0,
@@ -126,8 +144,10 @@ class ReviewAnswersSheet extends StatelessWidget {
                       color: isCorrect
                           ? AppColors.success.withValues(alpha: 0.4)
                           : (isAnswered
-                              ? AppColors.error.withValues(alpha: 0.4)
-                              : (isDark ? AppColors.darkBorder : AppColors.lightBorder)),
+                                ? AppColors.error.withValues(alpha: 0.4)
+                                : (isDark
+                                      ? AppColors.darkBorder
+                                      : AppColors.lightBorder)),
                       width: 1.2,
                     ),
                   ),
@@ -143,7 +163,12 @@ class ReviewAnswersSheet extends StatelessWidget {
                             Text(
                               'Soal #${index + 1}',
                               style: TextStyle(
-                                fontSize: Responsive.sp(context, 0.03, min: 12.0, max: 13.0),
+                                fontSize: Responsive.sp(
+                                  context,
+                                  0.03,
+                                  min: 12.0,
+                                  max: 13.0,
+                                ),
                                 fontWeight: FontWeight.w700,
                                 color: AppColors.primary,
                               ),
@@ -157,7 +182,12 @@ class ReviewAnswersSheet extends StatelessWidget {
                         Text(
                           question.questionText,
                           style: TextStyle(
-                            fontSize: Responsive.sp(context, 0.036, min: 13.0, max: 15.0),
+                            fontSize: Responsive.sp(
+                              context,
+                              0.036,
+                              min: 13.0,
+                              max: 15.0,
+                            ),
                             fontWeight: FontWeight.w600,
                             height: 1.35,
                           ),
@@ -214,12 +244,18 @@ class ReviewAnswersSheet extends StatelessWidget {
                                 const SizedBox(width: 8),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'Pembahasan:',
                                         style: TextStyle(
-                                          fontSize: Responsive.sp(context, 0.028, min: 11.0, max: 12.0),
+                                          fontSize: Responsive.sp(
+                                            context,
+                                            0.028,
+                                            min: 11.0,
+                                            max: 12.0,
+                                          ),
                                           fontWeight: FontWeight.w700,
                                           color: AppColors.primary,
                                         ),
@@ -228,7 +264,12 @@ class ReviewAnswersSheet extends StatelessWidget {
                                       Text(
                                         question.explanation!,
                                         style: TextStyle(
-                                          fontSize: Responsive.sp(context, 0.03, min: 12.0, max: 13.0),
+                                          fontSize: Responsive.sp(
+                                            context,
+                                            0.03,
+                                            min: 12.0,
+                                            max: 13.0,
+                                          ),
                                           height: 1.35,
                                         ),
                                       ),
@@ -262,7 +303,11 @@ class ReviewAnswersSheet extends StatelessWidget {
         ),
         child: const Text(
           'Tidak Dijawab',
-          style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: Colors.grey),
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w600,
+            color: Colors.grey,
+          ),
         ),
       );
     }

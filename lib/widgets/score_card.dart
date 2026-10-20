@@ -24,7 +24,12 @@ class ScoreCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
     final double cardPadding = Responsive.w(context, 0.05).clamp(16.0, 24.0);
-    final double scoreFontSize = Responsive.sp(context, 0.12, min: 42.0, max: 58.0);
+    final double scoreFontSize = Responsive.sp(
+      context,
+      0.12,
+      min: 42.0,
+      max: 58.0,
+    );
 
     return Card(
       elevation: isDark ? 0 : 3,
@@ -37,7 +42,10 @@ class ScoreCard extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: cardPadding, vertical: cardPadding * 1.1),
+        padding: EdgeInsets.symmetric(
+          horizontal: cardPadding,
+          vertical: cardPadding * 1.1,
+        ),
         child: Column(
           children: [
             // Label Skor Akhir
@@ -47,7 +55,8 @@ class ScoreCard extends StatelessWidget {
                 fontSize: Responsive.sp(context, 0.032, min: 11.0, max: 13.0),
                 fontWeight: FontWeight.w700,
                 letterSpacing: 1.2,
-                color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                color: Theme.of(context).colorScheme.onSurface
+                    .withValues(alpha: 0.6),
               ),
             ),
             SizedBox(height: Responsive.h(context, 0.01)),
@@ -71,7 +80,8 @@ class ScoreCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: scoreFontSize * 0.45,
                     fontWeight: FontWeight.w600,
-                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.45),
+                    color: Theme.of(context).colorScheme.onSurface
+                        .withValues(alpha: 0.45),
                   ),
                 ),
               ],
@@ -160,7 +170,8 @@ class ScoreCard extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: Responsive.sp(context, 0.026, min: 10.0, max: 12.0),
-            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.65),
+            color: Theme.of(context).colorScheme.onSurface
+                .withValues(alpha: 0.65),
             fontWeight: FontWeight.w500,
           ),
         ),

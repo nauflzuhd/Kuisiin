@@ -22,7 +22,12 @@ class Responsive {
 
   /// Menghitung ukuran teks proporsional berdasarkan persentase lebar layar,
   /// dilengkapi batas minimum dan maksimum agar tetap nyaman dibaca.
-  static double sp(BuildContext context, double factor, {double min = 10, double max = 32}) {
+  static double sp(
+    BuildContext context,
+    double factor, {
+    double min = 10,
+    double max = 32,
+  }) {
     final double calculated = MediaQuery.sizeOf(context).width * factor;
     return calculated.clamp(min, max);
   }

@@ -62,7 +62,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     }
   }
 
-
   /// Validasi nama pengguna: tidak boleh kosong, spasi berlebih, atau kurang dari 2 karakter.
   String? _validateName(String? value) {
     if (value == null || value.trim().isEmpty) {
@@ -98,10 +97,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: const [
-          ThemeToggleButton(),
-          SizedBox(width: 8),
-        ],
+        actions: const [ThemeToggleButton(), SizedBox(width: 8)],
       ),
       body: SafeArea(
         child: Center(

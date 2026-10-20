@@ -31,9 +31,17 @@ class QuizScreen extends StatelessWidget {
     final int? selectedOption = quiz.currentAnswer;
     final bool isLandscape = Responsive.isLandscape(context);
 
-    final double horizontalPadding = Responsive.w(context, 0.05).clamp(16.0, 28.0);
-    final double verticalPadding = Responsive.h(context, 0.02).clamp(12.0, 24.0);
-    final double maxContainerWidth = isLandscape ? 860.0 : Responsive.maxContentWidth;
+    final double horizontalPadding = Responsive.w(
+      context,
+      0.05,
+    ).clamp(16.0, 28.0);
+    final double verticalPadding = Responsive.h(
+      context,
+      0.02,
+    ).clamp(12.0, 24.0);
+    final double maxContainerWidth = isLandscape
+        ? 860.0
+        : Responsive.maxContentWidth;
 
     return PopScope(
       canPop: false,
@@ -105,10 +113,7 @@ class QuizScreen extends StatelessWidget {
         SizedBox(height: Responsive.h(context, 0.02).clamp(10.0, 16.0)),
 
         // 2. Bilah Progres Kuis (QuizProgressBar)
-        QuizProgressBar(
-          current: questionNumber,
-          total: quiz.totalQuestions,
-        ),
+        QuizProgressBar(current: questionNumber, total: quiz.totalQuestions),
         SizedBox(height: Responsive.h(context, 0.02).clamp(12.0, 18.0)),
 
         // 3. Kartu Pertanyaan (QuestionCard)
@@ -194,13 +199,15 @@ class QuizScreen extends StatelessWidget {
           style: TextStyle(
             fontSize: Responsive.sp(context, 0.032, min: 12.0, max: 13.0),
             fontWeight: FontWeight.w500,
-            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.65),
+            color: Theme.of(context).colorScheme.onSurface
+                .withValues(alpha: 0.65),
           ),
         ),
         SizedBox(height: Responsive.h(context, 0.012).clamp(8.0, 12.0)),
         ...List.generate(currentQuestion.options.length, (index) {
-          final String label =
-              index < _optionLabels.length ? _optionLabels[index] : '${index + 1}';
+          final String label = index < _optionLabels.length
+              ? _optionLabels[index]
+              : '${index + 1}';
           final String optionText = currentQuestion.options[index];
           final bool isSelected = selectedOption == index;
 
@@ -219,7 +226,9 @@ class QuizScreen extends StatelessWidget {
 
   /// Membangun header sapaan nama pengguna
   Widget _buildUserHeader(BuildContext context, String userName) {
-    final String displayName = userName.trim().isEmpty ? 'Peserta' : userName.trim();
+    final String displayName = userName.trim().isEmpty
+        ? 'Peserta'
+        : userName.trim();
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -242,15 +251,26 @@ class QuizScreen extends StatelessWidget {
                 Text(
                   'Halo, $displayName! 👋',
                   style: TextStyle(
-                    fontSize: Responsive.sp(context, 0.04, min: 14.0, max: 16.0),
+                    fontSize: Responsive.sp(
+                      context,
+                      0.04,
+                      min: 14.0,
+                      max: 16.0,
+                    ),
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
                   'Semoga berhasil menjawab dengan benar!',
                   style: TextStyle(
-                    fontSize: Responsive.sp(context, 0.028, min: 10.0, max: 12.0),
-                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                    fontSize: Responsive.sp(
+                      context,
+                      0.028,
+                      min: 10.0,
+                      max: 12.0,
+                    ),
+                    color: Theme.of(context).colorScheme.onSurface
+                        .withValues(alpha: 0.6),
                   ),
                 ),
               ],
@@ -295,7 +315,9 @@ class QuizScreen extends StatelessWidget {
           flex: isFirst ? 2 : 1,
           child: PrimaryButton(
             text: isLast ? AppStrings.finishButton : AppStrings.nextButton,
-            icon: isLast ? Icons.check_circle_rounded : Icons.arrow_forward_rounded,
+            icon: isLast
+                ? Icons.check_circle_rounded
+                : Icons.arrow_forward_rounded,
             onPressed: () {
               if (isLast) {
                 _handleFinishQuiz(context, quiz);
@@ -316,7 +338,9 @@ class QuizScreen extends StatelessWidget {
         context: context,
         builder: (dialogContext) {
           return AlertDialog(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
             title: const Row(
               children: [
                 Icon(Icons.warning_amber_rounded, color: AppColors.warning),
@@ -336,7 +360,9 @@ class QuizScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
                 onPressed: () {
                   Navigator.pop(dialogContext);
@@ -361,7 +387,9 @@ class QuizScreen extends StatelessWidget {
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           title: const Text('Keluar dari Kuis?'),
           content: const Text(
             'Apakah kamu yakin ingin keluar? Progres kuis kamu saat ini akan direset.',
