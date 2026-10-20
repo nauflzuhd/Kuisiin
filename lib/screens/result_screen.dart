@@ -7,7 +7,9 @@ import '../core/constants/app_strings.dart';
 import '../core/utils/responsive.dart';
 import '../providers/quiz_provider.dart';
 import '../widgets/primary_button.dart';
+import '../widgets/review_answers_sheet.dart';
 import '../widgets/score_card.dart';
+import '../widgets/theme_toggle_button.dart';
 
 /// Halaman Hasil Kuis (ResultScreen).
 /// Menampilkan ucapan selamat, ilustrasi hasil, kartu evaluasi nilai [ScoreCard],
@@ -52,6 +54,10 @@ class ResultScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text(AppStrings.resultTitle),
           automaticallyImplyLeading: false,
+          actions: const [
+            ThemeToggleButton(),
+            SizedBox(width: 8),
+          ],
         ),
         body: SafeArea(
           child: Center(
@@ -113,9 +119,27 @@ class ResultScreen extends StatelessWidget {
                       incorrectCount: quiz.incorrectCount,
                       totalQuestions: quiz.totalQuestions,
                     ),
-                    SizedBox(height: Responsive.h(context, 0.035)),
+                    SizedBox(height: Responsive.h(context, 0.025)),
 
-                    // 4. Tombol Ulangi Kuis (Reset state tapi simpan nama)
+                    // 4. Tombol Lihat Pembahasan Soal & Kunci Jawaban
+                    OutlinedButton.icon(
+                      onPressed: () => ReviewAnswersSheet.show(context, quiz),
+                      icon: const Icon(Icons.fact_check_rounded, size: 20),
+                      label: const Text('Lihat Pembahasan & Kunci Jawaban'),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: AppColors.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        side: const BorderSide(color: AppColors.primary, width: 1.5),
+                        padding: EdgeInsets.symmetric(
+                          vertical: Responsive.h(context, 0.016).clamp(12.0, 16.0),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: Responsive.h(context, 0.015)),
+
+                    // 5. Tombol Ulangi Kuis (Reset state tapi simpan nama)
                     PrimaryButton(
                       text: AppStrings.retryButton,
                       icon: Icons.refresh_rounded,
@@ -125,6 +149,7 @@ class ResultScreen extends StatelessWidget {
                       },
                     ),
                     SizedBox(height: Responsive.h(context, 0.015)),
+
 
                     // 5. Tombol Kembali ke Halaman Utama (Reset semua)
                     OutlinedButton.icon(
