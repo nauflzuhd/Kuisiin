@@ -7,6 +7,7 @@ import '../core/constants/app_strings.dart';
 import '../core/utils/responsive.dart';
 import '../providers/quiz_provider.dart';
 import '../widgets/primary_button.dart';
+import '../widgets/theme_toggle_button.dart';
 
 /// Halaman awal (Welcome Screen) aplikasi Kuisiin.
 /// Menggunakan [StatefulWidget] untuk mengelola lifecycle [TextEditingController],
@@ -94,6 +95,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: const [
+          ThemeToggleButton(),
+          SizedBox(width: 8),
+        ],
+      ),
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(

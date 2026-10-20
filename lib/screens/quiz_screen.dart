@@ -11,6 +11,7 @@ import '../widgets/option_tile.dart';
 import '../widgets/primary_button.dart';
 import '../widgets/question_card.dart';
 import '../widgets/quiz_progress_bar.dart';
+import '../widgets/theme_toggle_button.dart';
 
 /// Halaman Kuis (QuizScreen).
 /// Menampilkan pertanyaan kuis dinamis dari [QuizProvider] menggunakan widget modular:
@@ -45,12 +46,15 @@ class QuizScreen extends StatelessWidget {
           title: const Text(AppStrings.appName),
           automaticallyImplyLeading: false,
           actions: [
+            // Tombol Toggle Tema (Terang / Gelap)
+            const ThemeToggleButton(),
             // Tombol Keluar Kuis dengan konfirmasi
             IconButton(
               tooltip: 'Keluar Kuis',
               icon: const Icon(Icons.close_rounded),
               onPressed: () => _showExitConfirmationDialog(context, quiz),
             ),
+            const SizedBox(width: 4),
           ],
         ),
         body: SafeArea(
