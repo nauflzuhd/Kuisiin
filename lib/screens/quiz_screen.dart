@@ -233,49 +233,57 @@ class QuizScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
-            CircleAvatar(
-              radius: Responsive.w(context, 0.045).clamp(16.0, 20.0),
-              backgroundColor: AppColors.primary.withValues(alpha: 0.15),
-              child: const Icon(
-                Icons.person_rounded,
-                size: 20,
-                color: AppColors.primary,
+        Expanded(
+          child: Row(
+            children: [
+              CircleAvatar(
+                radius: Responsive.w(context, 0.045).clamp(16.0, 20.0),
+                backgroundColor: AppColors.primary.withValues(alpha: 0.15),
+                child: const Icon(
+                  Icons.person_rounded,
+                  size: 20,
+                  color: AppColors.primary,
+                ),
               ),
-            ),
-            const SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Halo, $displayName! 👋',
-                  style: TextStyle(
-                    fontSize: Responsive.sp(
-                      context,
-                      0.04,
-                      min: 14.0,
-                      max: 16.0,
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Halo, $displayName! 👋',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: Responsive.sp(
+                          context,
+                          0.04,
+                          min: 14.0,
+                          max: 16.0,
+                        ),
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Text(
-                  'Semoga berhasil menjawab dengan benar!',
-                  style: TextStyle(
-                    fontSize: Responsive.sp(
-                      context,
-                      0.028,
-                      min: 10.0,
-                      max: 12.0,
+                    Text(
+                      'Semangat menjawab! 💪',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: Responsive.sp(
+                          context,
+                          0.028,
+                          min: 10.0,
+                          max: 12.0,
+                        ),
+                        color: Theme.of(context).colorScheme.onSurface
+                            .withValues(alpha: 0.6),
+                      ),
                     ),
-                    color: Theme.of(context).colorScheme.onSurface
-                        .withValues(alpha: 0.6),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ],
     );

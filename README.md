@@ -5,71 +5,157 @@ Aplikasi kuis pilihan ganda interaktif berbasis Flutter yang dikembangkan bertah
 ---
 
 ## Identitas Mahasiswa
-- **Nama:** Muhammad Naufal Zuhdi
-- **NIM:**  241401052
-- **Lab:**  Pemrograman Mobile 1
+| | |
+|---|---|
+| **Nama** | Muhammad Naufal Zuhdi |
+| **NIM** | 241401052 |
+| **Lab** | Pemrograman Mobile 1 |
 
 ---
 
 ## Informasi Aplikasi
-- **Nama Aplikasi:** Kuisiin
-- **Topik Kuis:** Pemrograman Mobile (Dart, Flutter, Konsep Mobile, Arsitektur Aplikasi)
-- **Deskripsi:** Aplikasi kuis interaktif yang menguji pemahaman mahasiswa tentang pemrograman mobile. Pengguna memasukkan nama, menjawab 10 pertanyaan pilihan ganda, dan mendapatkan evaluasi skor akhir secara instan.
 
-**Fitur:**
-- Input nama pengguna
-- Kuis pilihan ganda dengan progres soal
-- Skor akhir berdasarkan nama pengguna dan jawaban benar
-- Progres kuis tidak hilang saat rotasi layar atau pindah halaman
-- (Bonus) Dark & Light mode
-- (Bonus) Tampilan adaptif tablet & web
-- (Bonus) Peninjauan & pembahasan jawaban kuis (Review Answers)
+| | |
+|---|---|
+| **Nama Aplikasi** | Kuisiin |
+| **Platform** | Android, iOS, Web |
+| **Bahasa / Framework** | Dart / Flutter |
+| **Topik Kuis** | Pemrograman Mobile (Dart, Flutter, Konsep Mobile, Arsitektur Aplikasi) |
+
+**Deskripsi:**
+Kuisiin adalah aplikasi kuis interaktif yang menguji pemahaman mahasiswa tentang pemrograman mobile. Pengguna memasukkan nama, menjawab 10 pertanyaan pilihan ganda, dan mendapatkan evaluasi skor akhir secara instan. Aplikasi mendukung navigasi maju–mundur antar soal, persisten state saat rotasi layar, tampilan adaptif landscape, tema gelap/terang, dan peninjauan pembahasan jawaban lengkap.
+
+---
+
+## Daftar Fitur
+
+### Fitur Wajib
+| # | Fitur | Keterangan |
+|---|---|---|
+| 1 | **Input Nama Pengguna** | Validasi tidak boleh kosong, batas 30 karakter, trim spasi |
+| 2 | **Kuis Pilihan Ganda** | 10 soal topik Pemrograman Mobile & Flutter |
+| 3 | **Progress Bar Soal** | Indikator "Soal X dari Y" dengan `AnimatedLinearProgressIndicator` |
+| 4 | **Navigasi Maju–Mundur** | Tombol Sebelumnya & Berikutnya, jawaban tersimpan saat balik |
+| 5 | **Halaman Hasil Skor** | Skor /100, statistik benar/salah, pesan motivasi dinamis |
+| 6 | **UI Responsif** | Semua dimensi dihitung via `Responsive` (persentase layar, tidak ada hardcode) |
+| 7 | **Persistensi State Rotasi** | `QuizProvider` dengan `ChangeNotifier` + `MultiProvider` di atas `MaterialApp` |
+| 8 | **Minimal 3 Halaman** | Welcome Screen, Quiz Screen, Result Screen |
+| 9 | **Reusable Widgets** | `PrimaryButton`, `OptionTile`, `QuestionCard`, `QuizProgressBar`, `ScoreCard`, dll. |
+| 10 | **Aset & Font Kustom** | Gambar ilustrasi (unDraw) + Font Poppins lokal |
+
+### Fitur Bonus
+| # | Fitur | Keterangan |
+|---|---|---|
+| B1 | **Dark & Light Mode** | Toggle animasi di setiap AppBar via `ThemeProvider` |
+| B2 | **Tampilan Adaptif Landscape** | Tata letak 2-kolom otomatis saat orientasi landscape |
+| B3 | **Review Jawaban & Pembahasan** | Modal bottom sheet menampilkan evaluasi benar/salah + kunci jawaban + penjelasan |
 
 ---
 
 ## Dokumentasi & Credit Aset
 
 ### Palet Warna (Design Tokens)
-- **Primary:** `#6C63FF` (Deep Purple / Indigo)
-- **Secondary:** `#FF6584` (Coral Pink)
-- **Accent:** `#FFB800` (Gold / Amber)
-- **Background Light:** `#F8FAFC` | **Background Dark:** `#0F172A`
-- **Surface Light:** `#FFFFFF` | **Surface Dark:** `#1E293B`
+| Token | Hex | Keterangan |
+|---|---|---|
+| Primary | `#6C63FF` | Deep Purple / Indigo |
+| Secondary | `#FF6584` | Coral Pink |
+| Accent | `#FFB800` | Gold / Amber |
+| Background Light | `#F8FAFC` | Latar terang |
+| Background Dark | `#0F172A` | Latar gelap (navy slate) |
+| Surface Light | `#FFFFFF` | Permukaan kartu terang |
+| Surface Dark | `#1E293B` | Permukaan kartu gelap |
 
-### Credit Aset
-- **Font:** [Poppins](https://fonts.google.com/specimen/Poppins) oleh Indian Type Foundry / Jonny Pinhorn (Lisensi SIL Open Font License via Google Fonts).
-- **Ilustrasi:** [unDraw](https://undraw.co/) oleh Katerina Limpitsouni (Lisensi Open-Source):
-  - `assets/images/welcome_hero.png` — Ilustrasi flat vektor *Questions* (unDraw)
-  - `assets/images/trophy_result.png` — Ilustrasi flat vektor *Awards & Trophy* (unDraw)
-- **Ikon & Logo:** [Lucide Icons](https://lucide.dev/) (Lisensi ISC/MIT):
-  - `assets/images/quiz_logo.png` — Logo vektor flat aplikasi Kuisiin
-  - `assets/icons/quiz_medal.png` — Ikon medali penghargaan emas (Award Badge)
+### Credit Sumber Aset
+| Aset | Sumber | Lisensi |
+|---|---|---|
+| **Font Poppins** (Regular, Medium, SemiBold, Bold) | [Google Fonts — Indian Type Foundry / Jonny Pinhorn](https://fonts.google.com/specimen/Poppins) | SIL Open Font License 1.1 |
+| **`assets/images/welcome_hero.png`** — Ilustrasi vektor Questions | [unDraw](https://undraw.co/) oleh Katerina Limpitsouni | Open-Source (bebas pakai) |
+| **`assets/images/trophy_result.png`** — Ilustrasi vektor Awards & Trophy | [unDraw](https://undraw.co/) oleh Katerina Limpitsouni | Open-Source (bebas pakai) |
+| **`assets/images/quiz_logo.png`** — Logo aplikasi Kuisiin | [unDraw](https://undraw.co/) oleh Katerina Limpitsouni | Open-Source (bebas pakai) |
+| **`assets/icons/quiz_medal.png`** — Ikon medali penghargaan | [Flaticon](https://www.flaticon.com/) | Flaticon License |
 
-### Mockup / Prototype
-- 
+---
 
-### Screenshot Halaman
-| Welcome Screen | Quiz Screen | Result Screen |
+## Screenshot Halaman
+
+### Welcome Screen
+| Portrait | Landscape |
+| :---: | :---: |
+| ![Welcome Portrait](docs/screenshots/welcomePortrait.jpg) | ![Welcome Landscape](docs/screenshots/welcomeLandscape.jpg) |
+
+### Quiz Screen
+| Portrait | Landscape (2-kolom) |
+| :---: | :---: |
+| ![Quiz Portrait](docs/screenshots/quizPortrait.jpg) | ![Quiz Landscape](docs/screenshots/quizLandscape.jpg) |
+
+### Result Screen
+| Portrait | Landscape |
+| :---: | :---: |
+| ![Result Portrait](docs/screenshots/resultPortrait.jpg) | ![Result Landscape](docs/screenshots/resultLandscape.jpg) |
+
+### Dark Mode
+| Welcome Dark | Quiz Dark | Result Dark |
 | :---: | :---: | :---: |
-| *-* | *-* | *-* |
+| ![Welcome Dark](docs/screenshots/WelcomeDark.jpg) | ![Quiz Dark](docs/screenshots/quizDark.jpg) | ![Result Dark](docs/screenshots/resultDark.jpg) |
 
-### Video Presentasi
-- **Link Video:** *(Akan ditambahkan pada Hari 12 via Google Drive)*
+
+
+---
+
+## Mockup / Prototype
+
+- **Link Figma:** [Klik di sini untuk melihat prototype](https://www.figma.com/design/kTDQjTfIk0wASWRaLXVOac/Untitled?node-id=0-1&t=rffWSil8Hs9lS7zB-1)
+
+---
+
+## Video Presentasi
+
+- **Link Video Google Drive:** [Klik di sini untuk menonton](https://drive.google.com/file/d/12c9tTp3RO9rzCs7QVkCkJ06u4zeTgRcm/view?usp=sharing)
 
 ---
 
 ## Cara Menjalankan Aplikasi
+
 ```bash
-# 1. Unduh package dan dependensi
+# 1. Clone repository
+git clone https://github.com/<username>/Kuisiin.git
+cd Kuisiin
+
+# 2. Unduh package dan dependensi
 flutter pub get
 
-# 2. Jalankan aplikasi di emulator atau perangkat fisik
+# 3. Jalankan aplikasi di emulator atau perangkat fisik
 flutter run
+
+# 4. (Opsional) Jalankan seluruh test suite
+flutter test
+```
+
+> **Persyaratan:** Flutter SDK ≥ 3.x, Dart ≥ 3.x
+
+---
+
+## Struktur Proyek
+
+```
+lib/
+├── core/
+│   ├── constants/       # AppColors, AppStrings, AppRoutes
+│   ├── theme/           # AppTheme (light & dark)
+│   └── utils/           # Responsive helper
+├── data/                # questions_data.dart (data dummy lokal)
+├── models/              # Question model
+├── providers/           # QuizProvider, ThemeProvider
+├── screens/             # WelcomeScreen, QuizScreen, ResultScreen
+└── widgets/             # PrimaryButton, OptionTile, QuestionCard,
+                         # QuizProgressBar, ScoreCard, ThemeToggleButton,
+                         # ReviewAnswersSheet
 ```
 
 ---
 
 ## Catatan Perkembangan Harian
+
 - **Hari 1 (11 Okt 2026):** Setup repositori Git, inisialisasi Flutter, setup struktur folder modular (`core/`, `data/`, `models/`, `providers/`, `screens/`, `widgets/`), dan penambahan library `provider`.
 - **Hari 2 (12 Okt 2026):**
   - Menentukan konsep tema kuis (Pemrograman Mobile).
@@ -113,9 +199,8 @@ flutter run
   - Melakukan audit komprehensif kode dengan `flutter analyze` untuk memastikan tidak ada warning maupun error lint (0 issues).
   - Memperbarui suite pengujian widget & unit test pada `test/widget_test.dart` (mencakup flow render halaman, validasi input nama kosong, logika kalkulasi skor kuis di `QuizProvider`, serta fungsi toggle `ThemeProvider`), dan seluruh pengujian berhasil lulus 100%.
   - Merapikan struktur dan format kode pada seluruh direktori `lib/` dan `test/` menggunakan perintah standar `dart format`.
-
-
-
-
-
-
+- **Hari 12 (23 Okt 2026):**
+  - Melengkapi dokumen `README.md`.
+  - Menyiapkan folder `docs/screenshots/` untuk menyimpan screenshot aplikasi.
+  - Merekam dan mengunggah video presentasi ke Google Drive.
+  - Memperbarui `README.md` dengan link video presentasi final.
