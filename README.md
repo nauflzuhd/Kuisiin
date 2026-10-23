@@ -118,7 +118,7 @@ Kuisiin adalah aplikasi kuis interaktif yang menguji pemahaman mahasiswa tentang
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/<username>/Kuisiin.git
+git clone https://github.com/nauflzuhd/Kuisiin.git
 cd Kuisiin
 
 # 2. Unduh package dan dependensi
